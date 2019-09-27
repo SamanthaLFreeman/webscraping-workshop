@@ -1,4 +1,5 @@
 let Nightmare = require('nightmare');
+let fs = require('fs');
 let nightmare = Nightmare({ show: true });
 nightmare
   .goto('https://www.gameinformer.com/2019')
@@ -11,9 +12,10 @@ nightmare
     });
   })
   .end()
-  .then(function (result) {
+  .then(result => {
+    fs.writeFileSync('testOutput.json', JSON.stringify(result));
     console.log(result);
   })
-  .catch(function (error) {
+  .catch(error => {
     console.error('Search failed:', error);
   });

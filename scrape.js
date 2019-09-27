@@ -13,7 +13,7 @@ nightmare
   })
   .end()
   .then(result => {
-    fs.writeFileSync('testOutput.json', JSON.stringify(result));
+    fs.writeFileSync('testOutput.js', JSON.stringify(result));
     console.log(result);
   })
   .catch(error => {
